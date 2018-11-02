@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css">
+			.no-bg {
+				background: none !important;
+			}
+
+			.flex-2 {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.v-center {
+				display: flex;
+				align-items: center;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h3>Analyze Runtime Performance With DevTools</h3>
+					<p>
+						<small><em>xuzhenfei</em> @2018-11-02</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Performance</h2>
+					<p class="fragment">
+						<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1442546641,1415466511&fm=11&gp=0.jpg">
+					</p>
+					<p class="fragment">
+						What is it?
+					</p>
+				</section>
+
+				<section>
+					<h2>Content</h2>
+					<ul>
+						<li>Performance Ananlysis Reference</li>
+						<li>Animation Performance Demo</li>
+						<li>Next Steps...</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Performance Ananlysis Reference</h2>
+					</section>
+					<section>
+						<h2>Record performance</h2>
+						<div class="flex-2 v-center">
+							<p class="fragment">Record runtime performance</p>
+							<img style="width: 65%; height: 80%;" class="fragment plain no-bg" src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/record.svg?hl=zh-cn">
+						</div>
+					</section>
+					<section>
+						<div class="flex-2 v-center">
+							<p>Record load performance</p>
+							<img style="width: 65%; height: 80%;" class="plain no-bg" src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/reload-page.svg?hl=zh-cn">
+						</div>
+					</section>
+					<section>
+						<div class="flex-2 v-center">
+							<p>Capture screenshots while recording</p>
+							<img class="plain no-bg" style="width: 60%; height: 80%;" class="plain no-bg" src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/screenshots.svg?hl=zh-cn">
+						</div>
+					</section>
+					<section>
+						<div class="flex-2 v-center">
+							<p>Show recording settings</p>
+							<img style="width: 60%; height: 80%;" class="plain no-bg" src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/capture-settings.svg?hl=zh-cn">
+						</div>
+					</section>
+					<section>
+						<p>Recording settings</p>
+						<table>
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Disable JavaScript samples</td>
+									<td>displays/omits detailed call stacks of JavaScript functions</td>
+								</tr>
+								<tr>
+									<td>Throttle the network</td>
+									<td>Set Network to the desired level of throttling</td>
+								</tr>
+								<tr>
+									<td>Throttle the CPU</td>
+									<td>Throttling is relative to your computer's capabilities</td>
+								</tr>
+								<tr>
+									<td>Enable advanced paint instrumentation</td>
+									<td>view detailed paint instrumentation</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3 class="fragment grow">Analyze a performance recording</h3>
+						<em class="fragment">After you record runtime performance or record load performance, the Performance panel provides a <strong>lot of data</strong> for analyzing the performance of what just happened.</em>
+					</section>
+					<section data-background-size="auto 100%" data-background-image="https://d2slcw3kip6qmk.cloudfront.net/marketing/techblog/critical-path/performance-tab.png">
+						<div class="fragment">
+							<img src="http://5b0988e595225.cdn.sohucs.com/images/20171227/ef346e80c5f94ae28aa1dcda96bb78a6.jpg">
+						</div>
+						<p style="color: #000;" class="fragment"><em>Wow, that's an overwhelming amount of data. How can I?</em></p>
+					</section>
+					<section>
+						<div class="flex-2">
+							<div>
+								<p>Select a portion of a recording</p>
+								<p class="fragment">- Overview Section</p>
+								<ul>
+									<li class="fragment">FPS</li>
+									<li class="fragment">CPU</li>
+									<li class="fragment">NET</li>
+								</ul>
+							</div>
+							<img src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/zoom.gif?hl=zh-cn">
+						</div>
+					</section>
+					<section>
+						<div class="flex-2">
+							<div>
+								<p>The FPS chart</p>
+								<ul>
+									<li class="fragment">
+										Green bar <em class="fragment">- the higher the better</em>
+									</li>
+									<li class="fragment">
+										A red bar <em class="fragment">- warning, slow!!</em>
+									</li>
+								</ul>
+								<em class="fragment">60FPS is awesome!</em>
+							</div>
+							<img style="width: 70%; height: 100%;" class="plain no-bg" src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/fps-chart.svg?hl=zh-cn">
+						</div>
+					</section>
+					<section>
+						<div class="flex-2">
+							<div style="width: 55%;">
+								<p>The CPU chart</p>
+								<p style="font-size: 32px;">
+									<em class="fragment">The colors in the CPU chart correspond to the colors in the Summary tab.</em>
+									<br>
+									<em class="fragment">Full of color means that the CPU was maxed out. That's a cue!</em>
+								</p>
+							</div>
+							<img style="width: 50%; height: 100%;" class="plain no-bg" src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/cpu-summary.svg?hl=zh-cn">
+						</div>
+					</section>
+					<section data-background-size="auto 100%" data-background-position="60% 50%" data-background-image="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/frames-section.png?hl=zh-cn">
+						<div class="flex-2">
+							<p>Frames</p>
+						</div>
+					</section>
+					<section>
+						<div class="flex-2">
+							<div>
+								<p>View main thread activity</p>
+								<ul>
+									<li class="fragment">Random colors</li>
+									<li class="fragment">Readable(really?)</li>
+									<li class="fragment">Visualization of CPU stack tracking</li>
+									<li class="fragment">JavaScript、Style calculations、Layout and Painting</li>
+								</ul>
+							</div>
+							<img style="width: 60%; height: 100%;" class="plain no-bg" src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/main.svg?hl=zh-cn">
+						</div>
+					</section>
+					<!-- <section>
+						<div class="flex-2">
+							<div>
+								<h3>Add-ons</h3>
+								<p>Main Thread</p>
+								<ul>
+									<li>JavaScript</li>
+									<li>Style calculations</li>
+									<li></li>
+								</ul>
+							</div>
+							<img style="width: 70%; height: 90%;" class="plain no-bg" src="https://cdn-images-1.medium.com/max/2000/1*PiFyb7IV8vTDCGEeUOWLVQ.jpeg">
+						</div>
+					</section> -->
+					<section data-background-size="auto 100%" data-background-position="85% 50%" data-background-image="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/flamechart.png?hl=zh-cn">
+						<div class="flex-2">
+							<div style="width: 50%;">
+								<p style="text-align: left;">Flame Chart</p>
+								<ul style="font-size: 32px;">
+									<li class="fragment">The x-axis represents the recording over time</li>
+									<li class="fragment">Each bar represents an event - <em class="fragment">A wider bar means that event took longer</em></li>
+									<li class="fragment">The y-axis represents the call stack</li>
+									<li class="fragment">The events on top cause the events below it</li>
+									<li class="fragment">Dash lines
+										<ul>
+											<li class="fragment"><em>Blue</em> - DomContentLoaded</li>
+											<li class="fragment"><em>Red</em> - Load</li>
+										</ul>
+									</li>
+								</ul>
+								<strong class="fragment">Notes: <em>Whenever you see a red triangle, it's a warning that there may be an issue related to this event.</em></strong>
+							</div>
+						</div>
+					</section>
+					<section data-background-size="auto 100%" data-background-position="80% 50%" data-background-image="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/call-tree.png?hl=zh-cn">
+						<div class="flex-2">
+							<div>
+								<p>View activities in a table</p>
+								<ul>
+									<li class="fragment">Call Tree tab</li>
+									<li class="fragment">Bottom-Up tab</li>
+									<li class="fragment">Event Log tab</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<p>View activities in a table</p>
+						<table>
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Call Tree tab</td>
+									<td>view the root activities that cause the most work</td>
+								</tr>
+								<tr>
+									<td>Bottom-Up tab</td>
+									<td>view the activities where the most time was directly spent</td>
+								</tr>
+								<tr>
+									<td>Event Log tab</td>
+									<td>view the activities in the order in which they occurred during the recording</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<section>
+						<p>View activities in a table</p>
+						<a href="demo/perf/activitytabs.html" target="__blank">DEMO</a>
+					</section>
+					<section data-background-size="auto 100%" data-background-position="80% 50%" data-background-image="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/layers.png?hl=zh-cn">
+						<div class="flex-2">
+							<div>
+								<p>View layers information</p>
+								<ol style="font-size: 28px;">
+									<li class="fragment">Enable advanced paint instrumentation</li>
+									<li class="fragment">Select a frame in the Frames section</li>
+								</ol>
+							</div>
+						</div>
+					</section>
+					<section>
+						<p>Layer analysis <a href="https://googlechromelabs.github.io/ui-element-samples/flip-switch/" target="__blank">DEMO</a></p>
+					</section>
+				</section>
+
+				<section>
+					<section data-background-size="auto 100%" data-background-position="80% 50%" data-background-image="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/rendering-tab.png?hl=zh-cn">
+						<div class="flex-2">
+							<p style="width: 30%;">Analyze rendering performance with the Rendering tab</p>
+						</div>
+					</section>
+					<section>
+						<p>View Paint Flashing</p>
+						<p><a href="https://www.koalastothemax.com/" target="__blank">Example</a></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Analyze runtime animation performance</h2>
+						<p class="fragment">
+							<em>
+								To get more comfortable with the Performance panel, practice makes perfect
+							</em>
+						</p>
+						<p class="fragment"><a href="demo/jank/index.html" target="__blank">DEMO</a></p>
+					</section>
+					<section>
+						<p>The pixel pipeline</p>
+						<p>
+							<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-full.jpg?hl=zh-cn">
+						</p>
+					</section>
+					<section>
+						<p>Optimize</p>
+						<em class="fragment">Avoid forced synchronous layouts</em>
+						<p>
+							<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-no-layout.jpg">
+						</p>
+					</section>
+					<section>
+						<p>Optimize2 - "just composite"</p>
+						<em class="fragment">transform</em>
+						<a style="margin-left: 15px;" class="fragment" href="demo/jank/trans.html" target="__blank">example</a>
+						<p>
+							<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-no-layout-paint.jpg">
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Next Steps</h2>
+					<ul>
+						<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution?hl=zh-cn">Optimizing JS Execution</a></li>
+						<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations?hl=zh-cn">Reduce The Scope And Complexity Of Style Calculations</a></li>
+						<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing?hl=zh-cn">Avoid Large, Complex Layouts And Layout Thrashing</a></li>
+						<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/simplify-paint-complexity-and-reduce-paint-areas?hl=zh-cn">Simplify Paint Complexity And Reduce Paint Areas</a></li>
+						<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count?hl=zh-cn">Stick To Compositor-Only Properties And Manage Layer Count</a></li>
+						<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/debounce-your-input-handlers?hl=zh-cn">Debounce Your Input Handlers</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Reference</h3>
+					<ul>
+						<li><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference">Performance Analysis Reference</a></li>
+						<li><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/">Get Started With Analyzing Runtime Performance</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Thanks</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				width: window.innerWidth,
+				height: window.innerHeight,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
